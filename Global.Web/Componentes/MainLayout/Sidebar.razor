@@ -1,0 +1,37 @@
+﻿@using Microsoft.AspNetCore.Components.Routing
+
+@if (Inicializado)
+{
+    <div class="top-row ps-3 navbar navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="">Projetos</a>
+            <button title="Navigation menu" class="navbar-toggler">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+
+    <div class="nav-scrollable">
+        <nav class="flex-column">
+            @foreach (var menu in Menus)
+            {
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                        <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+                    </NavLink>
+                </div>
+            }
+        </nav>
+    </div>
+}
+
+@code {
+    private bool Inicializado { get; set; }
+    private List<MenuDto> Menus { get; set; } = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        Menus = BuscarMenus.Sidebar();
+        Inicializado = true;
+    }
+}
