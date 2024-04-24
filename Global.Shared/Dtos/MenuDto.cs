@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Global.Shared.Dtos
+﻿namespace Global.Shared.Dtos
 {
     public class MenuDto
     {
@@ -30,7 +24,7 @@ namespace Global.Shared.Dtos
         public static List<MenuDto> Sidebar()
         {
             int ordemMenu = 0;
-            int ordemSubMenu = 0;
+            //int ordemSubMenu = 0;
 
             List<MenuDto> lista = new()
                 {
@@ -40,6 +34,23 @@ namespace Global.Shared.Dtos
                         Titulo = "Home",
                         Ordem = ordemMenu++,
                         Class ="Home",
+                        Url = ""
+                    },
+                    new MenuDto
+                    {
+                        Codigo = MENU_RESTAURANTE,
+                        Titulo = "Restaurante",
+                        Ordem = ordemMenu++,
+                        Class ="Restaurante",
+                        Url = "https://localhost:44336/"
+                    },
+                    new MenuDto
+                    {
+                        Codigo = MENU_ECOMMERCE,
+                        Titulo = "ECommerce",
+                        Ordem = ordemMenu++,
+                        Class ="Ecommerce",
+                        Url = "https://localhost:44382/",
                         //SubMenus = new List<MenuDto>
                         //    {
                         //        new MenuDto
@@ -50,20 +61,6 @@ namespace Global.Shared.Dtos
                         //            Ordem = ordemSubMenu++
                         //        },
                         //    }
-                    },
-                    new MenuDto
-                    {
-                        Codigo = MENU_RESTAURANTE,
-                        Titulo = "Restaurante",
-                        Ordem = ordemMenu++,
-                        Class ="Restaurante"
-                    },
-                    new MenuDto
-                    {
-                        Codigo = MENU_ECOMMERCE,
-                        Titulo = "ECommerce",
-                        Ordem = ordemMenu++,
-                        Class ="Ecommerce",
                     },
             };
             return lista;
