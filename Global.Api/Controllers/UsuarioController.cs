@@ -8,10 +8,12 @@ namespace ExemploApi.Controllers
     public class UsuarioController : ControllerBase
     {
         private readonly UsuarioRepository _usuarioRepository;
+        private readonly IConfiguration _configuration;
 
-        public UsuarioController(UsuarioRepository usuarioRepository)
+        public UsuarioController(UsuarioRepository usuarioRepository, IConfiguration configuration)
         {
             _usuarioRepository = usuarioRepository;
+            _configuration = configuration;
         }
 
         [HttpPost("BuscarUsuarios")]
