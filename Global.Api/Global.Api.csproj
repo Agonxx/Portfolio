@@ -22,4 +22,8 @@
     <Folder Include="Repository\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Global.Shared\Global.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

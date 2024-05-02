@@ -22,4 +22,9 @@
     <Folder Include="Repository\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ECommerce.Shared\ECommerce.Shared.csproj" />
+    <ProjectReference Include="..\Global.Shared\Global.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
