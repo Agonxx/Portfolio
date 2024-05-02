@@ -1,7 +1,6 @@
-﻿using ExemploApi.Core.Enums;
-using ExemploApi.Core.Models;
-using ExemploApi.Database;
+﻿using ExemploApi.Database;
 using Microsoft.EntityFrameworkCore;
+using Restaurante.Shared.Models;
 
 namespace ExemploApi.Repository
 {
@@ -16,8 +15,8 @@ namespace ExemploApi.Repository
         public async Task<List<Usuario>> BuscarUsuarios()
         {
             var usuarios = new List<Usuario>() {
-                new Usuario { Id = 1, Nome = "Rafael", Email ="Rafael@gmail.com", Genero = EGenero.Masculino, CriadoEm = DateTime.Now.AddDays(-9) },
-                new Usuario { Id = 2, Nome = "Fernando", Email ="Fernando@gmail.com", Genero = EGenero.Masculino, CriadoEm = DateTime.Now.AddDays(-3) }};
+                new Usuario { Id = 1, Nome = "Rafael", Email ="Rafael@gmail.com" },
+                new Usuario { Id = 2, Nome = "Fernando", Email ="Fernando@gmail.com" }};
             return usuarios;
         }
 
@@ -29,8 +28,6 @@ namespace ExemploApi.Repository
                                       Id = usuarioDB.Id,
                                       Nome = usuarioDB.Nome,
                                       Email = usuarioDB.Email,
-                                      Genero = usuarioDB.Genero,
-                                      CriadoEm = usuarioDB.CriadoEm
                                   }).ToListAsync();
             return usuarios;
         }

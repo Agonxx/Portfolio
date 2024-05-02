@@ -1,12 +1,10 @@
-﻿using ExemploApi.Repository;
-
-namespace ExemploApi.Core.Config
+﻿
+namespace Global.Api.Core.Config
 {
     public static class ConfigRepositorys
     {
         public static void ConfigurarRepositorys(IServiceCollection services)
         {
-            services.AddScoped<UsuarioRepository>();
         }
     }
 }

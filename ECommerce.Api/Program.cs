@@ -1,5 +1,5 @@
-using ExemploApi.Core.Config;
-using ExemploApi.Database;
+using ECommerce.Api.Core.Config;
+using ECommerce.Api.Database;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 ConfigRepositorys.ConfigurarRepositorys(builder.Services);
 var connectionString = builder.Configuration.GetConnectionString("ConexaoBanco");
 
-builder.Services.AddDbContext<DatabaseApi>(options =>
+builder.Services.AddDbContext<DBECommerce>(options =>
     options.UseSqlServer(connectionString));
 
 builder.Services.AddControllers();

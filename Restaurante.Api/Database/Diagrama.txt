@@ -1,0 +1,55 @@
+﻿
+Table Usuarios {
+  Id integer
+  Nome varchar
+  Email varchar
+  Username varchar
+  Senha varchar
+  Salt varchar
+  Ativo bool
+  Tipo enum
+  DataCadastro timestamp 
+}
+
+Table Produtos {
+  Id integer
+  CategoriaId integer
+  Nome varchar
+  Preco decimal
+  Descricao varchar
+  DataCadastro timestamp 
+}
+
+Table Categorias {
+  Id integer
+  Nome varchar
+  DataCadastro timestamp 
+}
+
+Table Comandas {
+  Id integer
+  AtendenteId integer
+  StatusComanda enum
+  StatusPagamento enum
+  Abertura datetime
+  Encerramento datetime 
+}
+
+Table ItensComandas {
+  Id integer
+  ComandaId integer
+  ProtuoId integer
+  DataInclusao datetime 
+}
+
+Ref: Produtos.CategoriaId > Categorias.Id
+
+Ref: Comandas.AtendenteId > Usuarios.Id
+
+Ref: ItensComandas.ComandaId > Comandas.Id
+Ref: ItensComandas.ProtuoId > Produtos.Id
+
+
+
+
+

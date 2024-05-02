@@ -1,6 +1,5 @@
-﻿using ExemploApi.Core.Enums;
-using ExemploApi.Core.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Restaurante.Shared.Models;
 
 namespace ExemploApi.Database
 {
@@ -10,14 +9,21 @@ namespace ExemploApi.Database
         {
         }
 
+        public DbSet<Categoria> Categorias { get; set; }
+        public DbSet<Comanda> Comandas { get; set; }
+        public DbSet<ItemComanda> ItensComandas { get; set; }
+        public DbSet<Produto> Produtos { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.SetarItemComanda();
+            modelBuilder.SetarComanda();
+            modelBuilder.SetarProduto();
             modelBuilder.Seed();
         }
-        
+
     }
 
     public static class ModelBuilderExtensions
@@ -31,16 +37,6 @@ namespace ExemploApi.Database
                     Id = 1,
                     Nome = "Rafael",
                     Email ="Rafael@gmail.com",
-                    Genero = EGenero.Masculino,
-                    CriadoEm = DateTime.Now
-                },
-                new Usuario
-                {
-                    Id = 2,
-                    Nome = "Fernando",
-                    Email ="Fernando@gmail.com",
-                    Genero = EGenero.Masculino,
-                    CriadoEm = DateTime.Now
                 }
             });
         }
